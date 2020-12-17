@@ -1,0 +1,116 @@
+.menu-btn{
+
+    position: absolute;
+    top:35px;
+    right:35px;
+    z-index:3;
+    cursor:pointer;
+    @include easeOut;
+
+    .btn-line{
+        background-color:white;
+        width:30px;
+        height:3px;
+        margin: 0 0 5px 0;
+    }
+
+    &.close{
+        
+        transform: rotate(180deg);
+
+        .btn-line:nth-child(1){
+            transform: rotate(45deg) translate(5px, 5px); //move x, y
+        }
+        .btn-line:nth-child(2){
+            opacity:0;
+        }
+        .btn-line:nth-child(3){
+            transform: rotate(-45deg) translate(6px, -6px);//move x,y
+        }
+    }
+}
+
+
+.menu{
+    position:fixed;
+    top:0;
+    width:100%;
+    visibility: hidden;
+    opacity:0.96;
+
+    &.show{
+        visibility:visible;
+    }
+
+    &-branding, &-nav{
+        float:left;
+        width: 50%;
+        height:100vh;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+}
+
+.menu-branding{
+
+    background-color: rgb(95, 99, 105);
+    transform: translate3d(0, 100%, 0); // y=100%
+    transition: all 1s ease-out;
+
+    &.show{
+        transform: translate3d(0, 0, 0);
+        
+    }
+    .portrait{
+        background-image: url('/dist/img/profiili/portrait1.png');
+        width:250px;
+        height:250px;
+        background-size: cover;
+        border-radius: 50%;
+        align-items: center;
+        opacity:1;
+        border: 3px solid $secondary-color;
+        background-repeat: no-repeat;
+    }
+}
+
+.menu-nav{
+
+    background-color: rgb(74, 58, 143);
+    margin:0;
+    padding:0;
+    transform: translate3d(0, -100%, 0);
+    transition: all 1s ease-out;
+
+    &.show{
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.nav-item{
+
+    margin-bottom: 2rem;
+    font-size:2rem;
+    text-transform: uppercase;
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show{
+        transform:translate3d(0,0,0);
+    }
+
+    .nav-link:hover{
+        color: $secondary-color;
+        @include easeOut;
+    }
+}
+
+@for $x from 1 through 4{
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x * 0.1s;
+    }
+}
+

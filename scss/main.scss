@@ -1,0 +1,88 @@
+$secondary-color: rgb(12, 202, 250);
+$show-home-image: true;
+@mixin easeOut{
+    transition: all 0.5s ease-out;
+}
+
+@import 'menu';
+@import 'mobile';
+
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:whitesmoke;
+
+    @if $show-home-image{
+        &#bg-img{
+            background: url("/dist/img/bg/accounting_unsplash.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+
+            &:after{
+                content:'';
+                position:fixed;
+                top:0;
+                left:0;
+                background-size: cover;
+                width:100%;
+                min-height:100%;
+                background:rgba(rgb(43, 37, 37), 0.8);
+                z-index:-1;
+
+            }
+        }
+    }
+}
+
+h1,h2,h3{
+    font-weight:400;
+    margin:3rem 0 0 3rem;
+
+    &.sm-heading{
+        background-image: linear-gradient(to right,lighten(rgba(26, 24, 24,0.8),2),
+        rgba(rgb(32, 32, 32),0) 90%); //direction, colorstop-1, colorstop-2
+        padding: 0.3rem 4rem;
+        margin-bottom:2rem;
+        letter-spacing: 0.18em;
+        color:rgb(216, 213, 213);
+    }
+
+    &.lg-heading{
+        font-size: 6rem;        
+    }
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+li{
+    list-style:none;
+}
+
+.text-secondary{
+    color: $secondary-color;
+}
+
+header{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+}
+
+main{
+    &#home{
+        h1{
+            margin-top: 20vh;
+        }
+    }
+}
+

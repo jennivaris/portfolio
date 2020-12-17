@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My Work Portfolio",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "keywords": [
+    "taloushallinnon",
+    "opiskelija",
+    "kirjanpitäjä",
+    "työharjoittelu"
+  ],
+  "author": "Jenni Varis",
+  "license": "ISC"
+}
